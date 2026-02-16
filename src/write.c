@@ -260,7 +260,7 @@ static void *block_create() {
 static void block_alloc(io_block_t *ib, block_parts parts) {
     if ((parts & BLOCK_IN) && !ib->input)
         ib->input = xmalloc(gBlockInSize);
-    if ((parts & BLOCK_OUT) && !ib->output)
+    if ((parts & BLOCK_IN) && !ib->output)
         ib->output = xmalloc(gBlockOutSize);
     if (!ib->input || !ib->output)
         die("Can't allocate blocks");
